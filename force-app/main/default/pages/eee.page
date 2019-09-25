@@ -1,0 +1,34 @@
+<apex:page controller="MyCustomCtrl">
+ <apex:sectionHeader title="役職の一括登録"/> 
+<apex:form >
+    <apex:pageBlock title="役職情報">
+   
+    <apex:dataList value="{!acts}" var="ad">
+
+        <apex:pageBlockSection >
+       
+        <apex:inputField value="{!ad.name}" />
+        <apex:inputField value="{!ad.Apex__c}"/>
+        <apex:inputField value="{!ad.Functional_Area__c}"/>
+        <apex:inputField value="{!ad.Type__c}"/>
+        <apex:inputField value="{!ad.Open_Date__c}"/>
+            
+        </apex:pageBlockSection>
+        </apex:dataList>
+
+       <apex:commandButton value="一括登録" action="{!save}" />
+    </apex:pageBlock>
+       <apex:pageBlock title="数据显示">
+       <apex:pageBlockTable value="{!listTable}" var="contact">
+       <apex:column >
+            <apex:outputLink value="{!URLFOR($Action.Position__c.Delete, contact.ID)}">
+                Del
+            </apex:outputLink>
+        </apex:column>
+      <apex:column value="{!contact.ID}"/>
+      <apex:column value="{!contact.NAME}"/>
+      <apex:column value="{!contact.Status__c}"/>
+   </apex:pageBlockTable>
+    </apex:pageBlock>
+    </apex:form>
+</apex:page>

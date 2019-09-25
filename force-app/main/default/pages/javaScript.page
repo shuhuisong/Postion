@@ -1,0 +1,20 @@
+<apex:page controller="javaScript">
+
+<script>
+function setVar(param){
+    jQuery('[id$=myHiddenField]').val(param);
+    passStringToController();
+}
+</script>
+ <apex:pageBlockSection title="情報エリア"> 
+ </apex:pageBlockSection>
+ <apex:sectionHeader title="javaScript"/> 
+<apex:form >
+    <apex:inputHidden value="{!myString}" id="myHiddenField"/>
+
+<apex:actionFunction name="passStringToController" action="{!myMethod}" rerender="myHiddenField"/>
+
+<apex:commandButton value="Test me" onclick="setVar('new value'); return false;" />
+
+    </apex:form>
+</apex:page>

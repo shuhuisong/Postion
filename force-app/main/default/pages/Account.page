@@ -1,0 +1,8 @@
+<apex:page standardController="Position__c">
+  <apex:pageBlock title="Hello {!$User.FirstName}!">
+      <apex:pageBlockSection >
+          
+          <apex:detail relatedList="false"></apex:detail>
+      </apex:pageBlockSection>
+  </apex:pageBlock>
+</apex:page>
